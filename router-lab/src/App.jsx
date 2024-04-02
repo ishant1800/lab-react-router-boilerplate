@@ -1,37 +1,35 @@
-import { Routes, Route } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import Home from './components/Home'
-import About from './components/About'
-import Contacts from './components/Contacts'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import BrowserRouter as Router
+import Home from './components/Home';
+import About from './components/About';
+import Contacts from './components/Contacts';
+import './App.css';
 
 function App() {
   return (
-    <div className="app-container">
-      <header>
-        <Link className="brand-link" to="/">
-          <h1>Kalvium<span role="img" aria-label="heart">❤️</span></h1>
-        </Link>
-        <nav>
-          <ul className="nav-links">
-            <li>
-              <Link className="nav-item" to="/contacts">Get in Touch</Link>
-            </li>
-            <li>
-              <Link className="nav-item" to="/about">Learn More</Link>
-            </li>
-          </ul>
+    <Router> 
+      <>
+        <nav id="navBar">
+          <Link className="links" to="/">
+            <h1>Kalvium💖</h1>
+          </Link>
+          <div id="contactsAbout">
+            <Link className="links" to="/Contacts">
+              <h3>Contacts</h3>
+            </Link>
+            <Link className="links" to="/About">
+              <h3>About</h3>
+            </Link>
+          </div>
         </nav>
-      </header>
-      <main>
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contacts" element={<Contacts />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contacts" element={<Contacts />} />
         </Routes>
-      </main>
-    </div>
-  )
+      </>
+    </Router>
+  );
 }
 
-export default App
+export default App;
